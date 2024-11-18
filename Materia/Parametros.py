@@ -14,3 +14,16 @@ def main():
 
 if __name__ == '__main__':
    main() 
+
+def Saudacao (texto="Mundo"):
+    print(f"Olá {texto}")
+
+Saudacao("Joaquim")
+Saudacao()
+
+def Saudacao2 (Parte_Dia, Nome = "Joaquim"):
+    print (f"{Parte_Dia}, {Nome}")
+
+Saudacao2("Boa Tarde")
+Saudacao2("Boa Tarde", "Ana")
+Saudacao2(Nome = "Ana", Parte_Dia = "Boa Tarde")
