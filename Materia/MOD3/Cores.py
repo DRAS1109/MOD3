@@ -6,6 +6,5 @@ print (colored("Como estás?", "green"))
 
 print("")
 
-print(colored("PORT","red"))
-print(colored("U", "yellow"))
-print(colored("GAL", "green"))
+Portugal = (colored("POR","red")) + (colored("TU", "yellow")) + (colored("GAL", "green"))
+print (Portugal)

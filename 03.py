@@ -9,3 +9,9 @@ def Primo(N) -> bool:
             break
 
     return N_Primo
+
+if Primo(10) == True:
+    print("É um nº primno")
+
+else:
+    print("Não é um nº primno")
