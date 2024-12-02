@@ -2,13 +2,13 @@
 Programa para calcular todos os quadrados dos numeros ate N
 """
 
-import Ex10
+import Ex10_Quadrado
 import math
 
 def Soma_Quadrados(N):
     Quadrados = 0
     for i in range (1, N + 1):
-        Quadrados = Quadrados + Ex10.Calcular_Quadrado(i)
+        Quadrados = Quadrados + Ex10_Quadrado.Calcular_Quadrado(i)
 
     return Quadrados
 
