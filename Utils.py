@@ -22,7 +22,7 @@ def Ler_Inteiro(Mensagem="Introduza um valor inteiro: ") -> int:
         print("Erro: O valor inserido não é válido \n")
 
 
-def Ler_Decimal_Limites(Min, Max=None, Mensagem="Introduza um valor inteiro: ") -> int:
+def Ler_Inteiro_Limites(Min, Max=None, Mensagem="Introduza um valor inteiro: ") -> int:
     """
     Função que recebe o valor Min e Max a ler do utilizador.
     A função devolve o valor quando é um inteiro válido.
@@ -31,7 +31,7 @@ def Ler_Decimal_Limites(Min, Max=None, Mensagem="Introduza um valor inteiro: ") 
     while True:
         X = Ler_Inteiro(Mensagem)
 
-        if Max == None or (X >= Min and X <= Max):
+        if Max == None or Min == None or (X >= Min and X <= Max):
             return X
         
 
