@@ -34,18 +34,35 @@ def Entrada_Mesas(Max_Mesas, N_Mesas_Ocupadas):
     N_Mesas_Ocupadas = Utils.Ler_Inteiro_Limites(1, Mesas_Livres, "Quantas mesas ocuparam? ")
     return N_Mesas_Ocupadas
 
-def Saída(N_Lugares_Ocupados, N_Mesas_Ocupadas):
+def Saída_Clientes(N_Lugares_Ocupados):
     """
-    Responsavel por ler quandos clientes sairam, as mesas que se vão liberar e o preço da refeição
+    Responsavel por registar a saida dos clientes
     """
-    N_Clientes_S = Utils.Ler_Inteiro_Limites(None, N_Lugares_Ocupados, "Quantos clientes saíram? ")
+    if N_Lugares_Ocupados == 0:
+        print("Não tem clientes")
+        return 0
+
+    N_Clientes_S = Utils.Ler_Inteiro_Limites(1, N_Lugares_Ocupados, "Quantos clientes saíram? ")
     N_Lugares_Ocupados -= N_Clientes_S
     return N_Lugares_Ocupados
-    
-    N_Mesas_Desocupadas = Utils.Ler_Inteiro_Limites(None, N_Mesas_Ocupadas, "Quantas mesas desocuparam? ")
-    N_Lugares_Ocupados -= N_Mesas_Desocupadas
 
-    Preço_Ref = Utils.Ler_Decimal("Qual o preço da refeição? ")
+def Saída_Mesas(N_Mesas_Ocupadas):
+    """
+    Responsavel por ler as mesas que se vão liberar
+    """
+    if N_Mesas_Ocupadas == 0:
+        print("Não tem mesas ocupadas")
+        return 0
+        
+    N_Mesas_Desocupadas = Utils.Ler_Inteiro_Limites(1, N_Mesas_Ocupadas, "Quantas mesas desocuparam? ")
+    N_Mesas_Ocupadas -= N_Mesas_Desocupadas
+    return N_Mesas_Ocupadas
+
+def Saída_Ref(Preço_Ref_Tot):
+    """
+    Responsavel por apresentar o preço de todas as refeições vendidas
+    """
+    Preço_Ref = Utils.Ler_Decimal_Limites(1, None, "Qual o preço da refeição? ")
     Preço_Ref_Tot += Preço_Ref
     return Preço_Ref_Tot
 
@@ -63,10 +80,11 @@ def Estado(Max_Lugares, N_Lugares_Ocupados, Max_Mesas, N_Mesas_Ocupadas, Preço_
     print(f"Tem {Mesas_Livres} mesas livres")
 
     #Nº de clientes = N_Lugares_Atual
-    print(f"Estão {N_Lugares_Ocupados} clientes")
+    print(f"Estão {N_Lugares_Ocupados} clientes no restaurante")
 
     #% de ocupação
     Ocupação = (N_Lugares_Ocupados / Max_Lugares) * 100
+    print(f"Que corresponde a {Ocupação}% de ocupação")
 
     #Custo de todas as refeições = Preço_Ref_Tot
     print(f"De todos clientes que já saíram acumulou {Preço_Ref_Tot}€")
@@ -82,6 +100,7 @@ def Menu():
     #N mesas e clientes atualmente no restaurante
     N_Lugares_Ocupados = 0
     N_Mesas_Ocupadas = 0
+    Preço_Ref_Tot = 0
 
     X = 1
     while X != 4:
@@ -90,13 +109,15 @@ def Menu():
             N_Clientes_E = Entrada_Clientes(Max_Lugares, N_Lugares_Ocupados)
             N_Lugares_Ocupados += N_Clientes_E
 
-            N_Mesas_Ocupadas = Entrada_Mesas(Max_Mesas, N_Mesas_Ocupadas)
-            N_Mesas_Ocupadas += N_Mesas_Ocupadas
+            N_Mesas_E = Entrada_Mesas(Max_Mesas, N_Mesas_Ocupadas)
+            N_Mesas_Ocupadas += N_Mesas_E
 
         elif X == 2:
-            Saída(N_Lugares_Ocupados, N_Mesas_Ocupadas)
+            Saída_Clientes(N_Lugares_Ocupados)
+            Saída_Mesas(N_Mesas_Ocupadas)
+            Preço_Ref_Tot = Saída_Ref(Preço_Ref_Tot)
         elif X == 3:
-            Estado()
+            Estado(Max_Lugares, N_Lugares_Ocupados, Max_Mesas, N_Mesas_Ocupadas, Preço_Ref_Tot)
     
 
 def main():
