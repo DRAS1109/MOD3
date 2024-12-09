@@ -41,7 +41,7 @@ X = Utils.Ler_Decimal_Limites(2.5)
 print (X)
 """
 
-
+"""
 Frase = input("Introduza uma frase: ")
 Frase = Frase.lower()
 
@@ -52,3 +52,22 @@ for X in range (97, 122 + 1):
             Contar += 1
     if Contar > 0:
         print (f"A função tem {Contar} letras {chr(X)}")
+"""
+def verificar_palindromo(palavra):
+    """
+    Verifique se a palavra recebida é um palíndromo.
+    Palíndromo é uma palavra que pode ser lida igual de trás para frente.
+    Exemplo: "radar" é um palíndromo.
+    """
+
+    Palavra_inversa = ""
+    palavra = palavra.lower().strip()
+
+    for Posição in range (len(palavra)-1,-1,-1):
+        Palavra_inversa = Palavra_inversa + palavra[Posição]
+
+    if palavra == Palavra_inversa:
+        return ("É um palindrome")
+    return ("Nao é um palindrome")
+
+print(verificar_palindromo("olo"))

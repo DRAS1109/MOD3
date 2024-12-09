@@ -7,5 +7,7 @@ range (1, 10, 2) = (1, 3, 5, 7, 9)
 range (10, 1, 2) = (10, 8, 6, 4, 2)
 """
 
-for i in range (1, 5,2):
-    print(i)
+from time import sleep
+for N in range (5, -1, -1):
+    print(N)
+    sleep (1)
