@@ -38,7 +38,7 @@ def MostrarVencimento(nome,horas,ordenado_por_hora):
          ordenado = (8 * ordenado_por_hora) + ((horas - 8) * (ordenado_por_hora *1.25))
     
     else:
-         ordenado = (8 * ordenado_por_hora) + (2 * (ordenado_por_hora *1.25)) + ((horas - 10) * (ordenado_por_hora * 1.5))
+         ordenado = (8 * ordenado_por_hora) + (2 * (ordenado_por_hora * 1.25)) + ((horas - 10) * (ordenado_por_hora * 1.5))
 
     print (f"O {nome} deverá receber {ordenado}€")
 
