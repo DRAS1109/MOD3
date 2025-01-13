@@ -6,7 +6,7 @@ print(datetime.date.today())
 #Ano
 print(datetime.date.today().year)
 
-#Ano
+#Mes
 print(datetime.date.today().month)
 
 #Dia
